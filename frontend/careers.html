@@ -41,11 +41,11 @@
           aria-label="TechMaa-AI Home"
         >
           <img
-            src="assets/img/logo.svg"
+            src="assets/img/LOGO2.png"
             alt="TechMaa-AI Logo"
-            class="w-8 h-8"
+            id="logoTechmaa"
+            class="w-56 h-auto"
           />
-          <span class="hidden sm:inline">TechMaa-AI</span>
         </a>
         <ul class="hidden md:flex items-center space-x-6">
           <li>
@@ -209,44 +209,55 @@
       </section>
 
       <section id="life" class="py-16 md:py-24">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="order-2 md:order-1">
-                <img
-                    src="assets/img/miniGames.png"
-                    alt="A collaborative and fun work environment"
-                    class="rounded-lg shadow-2xl w-full max-w-md mx-auto"
-                />
-            </div>
-            <div class="order-1 md:order-2">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-                    Life at TechMaa-AI
-                </h2>
-                <p class="text-lg text-gray-700 mb-8">
-                    We believe in an outcome-first culture, driven by collaboration,
-                    curiosity, and continuous learning.
-                </p>
-                <ul class="space-y-4">
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-yellow-500 mt-1 mr-3"></i>
-                        <span class="text-gray-700">Work on cutting-edge AI, data, and cloud transformation projects</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-yellow-500 mt-1 mr-3"></i>
-                        <span class="text-gray-700">Flexible working options: hybrid, remote, and global mobility</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-yellow-500 mt-1 mr-3"></i>
-                        <span class="text-gray-700">Continuous learning programs and certifications</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-yellow-500 mt-1 mr-3"></i>
-                        <span class="text-gray-700">A diverse, inclusive, and collaborative environment</span>
-                    </li>
-                </ul>
-            </div>
+        <div
+          class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center"
+        >
+          <div class="order-2 md:order-1">
+            <img
+              src="assets/img/miniGames.png"
+              alt="A collaborative and fun work environment"
+              class="rounded-lg shadow-2xl w-full max-w-md mx-auto"
+            />
+          </div>
+          <div class="order-1 md:order-2">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+              Life at TechMaa-AI
+            </h2>
+            <p class="text-lg text-gray-700 mb-8">
+              We believe in an outcome-first culture, driven by collaboration,
+              curiosity, and continuous learning.
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-yellow-500 mt-1 mr-3"></i>
+                <span class="text-gray-700"
+                  >Work on cutting-edge AI, data, and cloud transformation
+                  projects</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-yellow-500 mt-1 mr-3"></i>
+                <span class="text-gray-700"
+                  >Flexible working options: hybrid, remote, and global
+                  mobility</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-yellow-500 mt-1 mr-3"></i>
+                <span class="text-gray-700"
+                  >Continuous learning programs and certifications</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-yellow-500 mt-1 mr-3"></i>
+                <span class="text-gray-700"
+                  >A diverse, inclusive, and collaborative environment</span
+                >
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
-
 
       <section id="jobs" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-6 text-center">
@@ -258,37 +269,75 @@
             to learn more about responsibilities, qualifications, and benefits.
           </p>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left" role="list">
-            <div role="listitem" class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
-                <h3 class="text-2xl font-semibold text-gray-900 mb-2">Senior AI Engineer</h3>
-                <p class="text-gray-600 mb-4">Bengaluru, India | Full-time</p>
-                <p class="text-gray-700 mb-6 flex-grow">Design and implement machine learning models for enterprise-level applications. Expertise in Python, TensorFlow, and cloud platforms required.</p>
-                <a href="apply-form.html" class="mt-auto text-center bg-gray-800 hover:bg-black text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">Learn More & Apply</a>
-            </div>
-            
-            <div role="listitem" class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
-                <h3 class="text-2xl font-semibold text-gray-900 mb-2">Cloud Solutions Architect</h3>
-                <p class="text-gray-600 mb-4">Remote | Full-time</p>
-                <p class="text-gray-700 mb-6 flex-grow">Lead the design of robust, scalable, and secure cloud infrastructure for our clients on AWS, Azure, and GCP.</p>
-                <a href="apply-form.html" class="mt-auto text-center bg-gray-800 hover:bg-black text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">Learn More & Apply</a>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left"
+            role="list"
+          >
+            <div
+              role="listitem"
+              class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col"
+            >
+              <h3 class="text-2xl font-semibold text-gray-900 mb-2">
+                Senior AI Engineer
+              </h3>
+              <p class="text-gray-600 mb-4">Bengaluru, India | Full-time</p>
+              <p class="text-gray-700 mb-6 flex-grow">
+                Design and implement machine learning models for
+                enterprise-level applications. Expertise in Python, TensorFlow,
+                and cloud platforms required.
+              </p>
+              <a
+                href="apply-form.html"
+                class="mt-auto text-center bg-gray-800 hover:bg-black text-white font-bold py-3 px-6 rounded-lg transition-all duration-300"
+                >Learn More & Apply</a
+              >
             </div>
 
-            <div role="listitem" class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
-                <h3 class="text-2xl font-semibold text-gray-900 mb-2">Data Scientist</h3>
-                <p class="text-gray-600 mb-4">Pune, India | Hybrid</p>
-                <p class="text-gray-700 mb-6 flex-grow">Analyze large, complex data sets to identify trends, develop predictive models, and provide actionable insights that drive business decisions.</p>
-                <a href="apply-form.html" class="mt-auto text-center bg-gray-800 hover:bg-black text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">Learn More & Apply</a>
+            <div
+              role="listitem"
+              class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col"
+            >
+              <h3 class="text-2xl font-semibold text-gray-900 mb-2">
+                Cloud Solutions Architect
+              </h3>
+              <p class="text-gray-600 mb-4">Remote | Full-time</p>
+              <p class="text-gray-700 mb-6 flex-grow">
+                Lead the design of robust, scalable, and secure cloud
+                infrastructure for our clients on AWS, Azure, and GCP.
+              </p>
+              <a
+                href="apply-form.html"
+                class="mt-auto text-center bg-gray-800 hover:bg-black text-white font-bold py-3 px-6 rounded-lg transition-all duration-300"
+                >Learn More & Apply</a
+              >
             </div>
-            
+
+            <div
+              role="listitem"
+              class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col"
+            >
+              <h3 class="text-2xl font-semibold text-gray-900 mb-2">
+                Data Scientist
+              </h3>
+              <p class="text-gray-600 mb-4">Pune, India | Hybrid</p>
+              <p class="text-gray-700 mb-6 flex-grow">
+                Analyze large, complex data sets to identify trends, develop
+                predictive models, and provide actionable insights that drive
+                business decisions.
+              </p>
+              <a
+                href="apply-form.html"
+                class="mt-auto text-center bg-gray-800 hover:bg-black text-white font-bold py-3 px-6 rounded-lg transition-all duration-300"
+                >Learn More & Apply</a
+              >
             </div>
+          </div>
         </div>
       </section>
 
       <section class="bg-gray-900 text-white">
         <div class="container mx-auto px-6 py-16 text-center">
-          <h2 class="text-3xl font-bold mb-4">
-            Didn’t find the right role?
-          </h2>
+          <h2 class="text-3xl font-bold mb-4">Didn’t find the right role?</h2>
           <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
             We’re always looking for exceptional talent. Share your profile with
             us, and we’ll reach out when an opportunity fits.
@@ -331,7 +380,7 @@
             mobileMenu.classList.remove("translate-x-full");
             mobileMenuOverlay.classList.remove("hidden");
             mobileMenuButton.setAttribute("aria-expanded", "true");
-            document.body.classList.add("overflow-hidden"); 
+            document.body.classList.add("overflow-hidden");
           } else {
             mobileMenu.classList.add("translate-x-full");
             mobileMenuOverlay.classList.add("hidden");
