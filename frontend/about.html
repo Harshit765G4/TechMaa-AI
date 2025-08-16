@@ -1,37 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About | TechMaa‑AI</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
-  <body>
-    <header class="nav">
-      <a class="brand" href="index.html"
-        ><img src="assets/img/logo.svg" alt="TechMaa-AI Logo" /> TechMaa‑AI</a
-      ><button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        ☰
-      </button>
-      <nav class="nav-links" id="navMenu">
-        <a href="services.html">Services</a
-        ><a href="industries.html">Industries</a
-        ><a href="case-studies.html">Case Studies</a
-        ><a href="insights.html">Insights</a><a href="careers.html">Careers</a
-        ><a class="btn btn-primary" href="contact.html">Contact</a>
-      </nav>
+    <title>About Us | TechMaa-AI</title>
+    <meta name="description" content="Learn about TechMaa-AI's mission, vision, and the team dedicated to driving innovation through AI, cloud, and data engineering excellence." />
+
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <header id="main-header" class="bg-black/80 text-white shadow-lg sticky top-0 z-50 backdrop-blur-sm transition-colors duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 text-2xl font-bold" aria-label="TechMaa-AI Home">
+                <img src="assets/img/LOGO2.png" alt="TechMaa-AI Logo" id="logoTechmaa" class="w-56 h-auto" />
+            </a>
+
+            <ul class="hidden md:flex items-center space-x-6">
+                <li><a href="services.html" class="hover:text-yellow-400 transition">Services</a></li>
+                <li><a href="about.html" class="hover:text-yellow-400 transition text-yellow-400">About Us</a></li>
+                <li><a href="insights.html" class="hover:text-yellow-400 transition">Insights</a></li>
+                <li><a href="careers.html" class="hover:text-yellow-400 transition">Careers</a></li>
+                <li><a href="contact.html" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-4 rounded-lg transition">Contact</a></li>
+            </ul>
+
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none" aria-label="Toggle mobile menu" aria-expanded="false">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+
+        <div id="mobile-menu-overlay" class="md:hidden fixed inset-0 bg-black bg-opacity-75 z-40 hidden"></div>
+        <div id="mobile-menu" class="md:hidden fixed top-0 right-0 w-64 h-full bg-gray-900 text-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+            <div class="p-6 flex justify-end">
+                <button id="close-mobile-menu" class="text-white focus:outline-none" aria-label="Close mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <ul class="flex flex-col space-y-4 p-6">
+                <li><a href="services.html" class="block py-2 text-lg hover:text-yellow-400 transition">Services</a></li>
+                <li><a href="about.html" class="block py-2 text-lg text-yellow-400">About Us</a></li>
+                <li><a href="insights.html" class="block py-2 text-lg hover:text-yellow-400 transition">Insights</a></li>
+                <li><a href="careers.html" class="block py-2 text-lg hover:text-yellow-400 transition">Careers</a></li>
+                <li><a href="contact.html" class="block py-2 text-lg hover:text-yellow-400 transition">Contact</a></li>
+            </ul>
+        </div>
     </header>
-    <main class="container">
-      <h1>About</h1>
-      <p>
-        We are a consultancy focused on outcomes and engineering excellence.
-      </p>
+
+    <main>
+        <section class="bg-white">
+            <div class="container mx-auto px-6 py-16 md:py-24 text-center">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900" data-aos="fade-up">
+                    Driving <span class="text-yellow-500">Innovation</span> Through Intelligence
+                </h1>
+                <p class="mt-6 text-lg text-gray-700 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    TechMaa-AI is a global technology consultancy that helps businesses build the future. We combine strategic thinking, engineering excellence, and a passion for outcomes to solve the toughest digital challenges.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Team collaborating on a project" class="rounded-lg shadow-2xl w-full" />
+                </div>
+                <div data-aos="fade-left">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
+                    <p class="text-gray-700 mb-4">
+                        Founded by a group of passionate engineers and strategists, TechMaa-AI was born from a shared belief: that technology's true power is unlocked when it delivers tangible, measurable results. We saw a gap between the promise of AI and its practical application in business.
+                    </p>
+                    <p class="text-gray-700">
+                        We set out to bridge that gap. Our journey began with a focus on engineering excellence, building a team of top-tier talent dedicated to solving complex problems. Today, we are a trusted partner to businesses worldwide, helping them navigate digital transformation and achieve sustainable growth.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 bg-gray-900 text-white">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 text-center md:text-left">
+                <div data-aos="fade-up">
+                    <h3 class="text-3xl font-bold mb-4 text-yellow-400">Our Mission</h3>
+                    <p class="text-lg text-gray-300">
+                        To empower businesses with transformative AI and cloud solutions, delivering measurable outcomes through engineering excellence and strategic partnership.
+                    </p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-3xl font-bold mb-4 text-yellow-400">Our Vision</h3>
+                    <p class="text-lg text-gray-300">
+                        To be a global leader in digital transformation, creating a future where intelligent technology is seamlessly integrated into every industry, fostering growth and innovation for all.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Our Core Values</h2>
+                    <p class="text-lg text-gray-700 mt-4">The principles that guide our work and our culture.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center p-6 bg-white rounded-lg shadow-md border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-yellow-100 text-yellow-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-lightbulb text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Innovation</h3>
+                        <p class="text-gray-600">We relentlessly pursue new ideas and technologies to push boundaries and create what's next.</p>
+                    </div>
+                    <div class="text-center p-6 bg-white rounded-lg shadow-md border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-medal text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Excellence</h3>
+                        <p class="text-gray-600">We are committed to the highest standards of quality in our work, our processes, and our results.</p>
+                    </div>
+                    <div class="text-center p-6 bg-white rounded-lg shadow-md border border-gray-100" data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-green-100 text-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Collaboration</h3>
+                        <p class="text-gray-600">We believe the best solutions are born from teamwork, open communication, and partnership with our clients.</p>
+                    </div>
+                    <div class="text-center p-6 bg-white rounded-lg shadow-md border border-gray-100" data-aos="fade-up" data-aos-delay="400">
+                        <div class="bg-purple-100 text-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-shield-alt text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Integrity</h3>
+                        <p class="text-gray-600">We build trust by being transparent, ethical, and accountable in all of our interactions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-yellow-500">
+            <div class="container mx-auto px-6 py-16 text-center">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">
+                    Ready to Build the Future?
+                </h2>
+                <p class="text-gray-800 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    We're always looking for passionate, curious, and talented people to join our global team. Explore our open roles and find your place at TechMaa-AI.
+                </p>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <a href="careers.html" class="bg-gray-900 hover:bg-black text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                        View Careers
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer class="footer simple">
-      <div class="subfooter">
-        <small>© <span id="year"></span> TechMaa‑AI.</small>
-      </div>
+
+    <footer class="bg-black text-white py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; <span id="year"></span> TechMaa-AI. All rights reserved.</p>
+            <p class="text-sm mt-2">
+                Empowering industries with AI-driven innovation.
+            </p>
+        </div>
     </footer>
-    <script src="assets/js/main.js" defer></script>
-  </body>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50
+            });
+
+            // Mobile Menu Toggle
+            const mBtn = document.getElementById('mobile-menu-button');
+            const mClose = document.getElementById('close-mobile-menu');
+            const mMenu = document.getElementById('mobile-menu');
+            const mOverlay = document.getElementById('mobile-menu-overlay');
+            const toggleMenu = () => {
+                const open = mMenu.classList.contains('translate-x-full');
+                mMenu.classList.toggle('translate-x-full', !open);
+                mOverlay.classList.toggle('hidden', !open);
+                document.body.classList.toggle('overflow-hidden', open);
+            };
+            mBtn.addEventListener('click', toggleMenu);
+            mClose.addEventListener('click', toggleMenu);
+            mOverlay.addEventListener('click', toggleMenu);
+
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
 </html>
