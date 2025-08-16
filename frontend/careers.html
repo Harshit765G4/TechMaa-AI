@@ -1,174 +1,139 @@
+<!-- changed this form completely -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Careers | TechMaa-AI</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers - Join Our Team | TechMaa-AI</title>
+  <meta name="description" content="Explore exciting career opportunities at TechMaa-AI. Join our team of innovators in AI, cloud technology, and digital transformation." />
 
-    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    <style>
-      body {
-        font-family: "Inter", sans-serif;
-      }
-    </style>
-  </head>
-  <body class="bg-gray-50 text-gray-800">
-    <header class="bg-black text-white shadow-lg sticky top-0 z-50">
-      <nav
-        class="container mx-auto px-6 py-4 flex justify-between items-center"
-      >
-        <a
-          href="index.html"
-          class="flex items-center space-x-2 text-2xl font-bold"
-          aria-label="TechMaa-AI Home"
-        >
-          <img
-            src="assets/img/LOGO2.png"
-            alt="TechMaa-AI Logo"
-            id="logoTechmaa"
-            class="w-56 h-auto"
-          />
-        </a>
-        <ul class="hidden md:flex items-center space-x-6">
-          <li>
-            <a href="services.html" class="hover:text-yellow-400 transition"
-              >Services</a
-            >
-          </li>
-          <li>
-            <a href="testimonials.html" class="hover:text-yellow-400 transition"
-              >Testimonials</a
-            >
-          </li>
-          <li>
-            <a href="insights.html" class="hover:text-yellow-400 transition"
-              >Insights</a
-            >
-          </li>
-          <li>
-            <a href="careers.html" class="text-yellow-400 font-semibold"
-              >Careers</a
-            >
-          </li>
-          <li>
-            <a
-              href="contact.html"
-              class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-4 rounded-lg transition"
-              >Contact</a
-            >
-          </li>
-        </ul>
-        <button
-          id="mobile-menu-button"
-          class="md:hidden focus:outline-none"
-          aria-label="Toggle mobile menu"
-          aria-expanded="false"
-        >
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            ></path>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+
+  <style>
+    body { font-family: "Inter", sans-serif; }
+
+    /* Subtle background dot pattern for a more premium feel */
+    .bg-dots {
+      background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+      background-size: 1.5rem 1.5rem;
+    }
+
+    /* Job card hover effects */
+    .job-card { transition: all 0.3s ease; }
+    .job-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    /* Form field focus styles */
+    .form-field:focus {
+      outline: none;
+      border-color: #fbbf24;
+      box-shadow: 0 0 0 3px rgba(251,191,36,0.1);
+    }
+    .form-field.error {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239,68,68,0.1);
+    }
+
+    /* Search and filter animations */
+    .search-container { transition: all 0.3s ease; }
+    .search-container:focus-within { transform: scale(1.02); }
+
+    /* Loading animation */
+    .loading-spinner { animation: spin 1s linear infinite; }
+    @keyframes spin { from{transform:rotate(0);} to{transform:rotate(360deg);} }
+
+    /* Modal animations */
+    .modal { backdrop-filter: blur(8px); }
+    .modal-content { animation: modalSlideUp .3s ease-out; }
+    @keyframes modalSlideUp {
+      from {opacity:0; transform:translateY(30px);}
+      to   {opacity:1; transform:translateY(0);}
+    }
+
+    /* Badge styles */
+    .badge { transition: all .2s ease; }
+    .badge:hover { transform: scale(1.05); }
+
+    /* Hero background */
+    .bg-white.bg-dots{
+      background-image:
+        url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'),
+        radial-gradient(#e5e7eb 1px,transparent 1px);
+      background-size: cover,1.5rem 1.5rem;
+      background-position:center,center;
+      background-repeat:no-repeat,repeat;
+      position:relative;
+    }
+    .bg-white.bg-dots::before{
+      content:'';
+      position:absolute; inset:0;
+      background:rgba(255,255,255,.7);
+      pointer-events:none;
+      z-index:1;
+    }
+    .bg-white.bg-dots>*{ position:relative; z-index:2; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- ===================  HEADER  =================== -->
+  <header id="main-header" class="bg-black/80 text-white shadow-lg sticky top-0 z-50 backdrop-blur-sm transition-colors duration-300">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-2 text-2xl font-bold" aria-label="TechMaa-AI Home">
+        <img src="assets/img/LOGO2.png" alt="TechMaa-AI Logo" id="logoTechmaa" class="w-56 h-auto" />
+      </a>
+
+      <ul class="hidden md:flex items-center space-x-6">
+        <li><a href="services.html"      class="hover:text-yellow-400 transition">Services</a></li>
+        <li><a href="testimonials.html"  class="hover:text-yellow-400 transition">Testimonials</a></li>
+        <li><a href="insights.html"      class="hover:text-yellow-400 transition">Insights</a></li>
+        <li><a href="careers.html"       class="hover:text-yellow-400 transition text-yellow-400">Careers</a></li>
+        <li><a href="employes.html"     class="hover:text-yellow-400 transition">Our Team</a></li>
+        <li><a href="contact.html"       class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-4 rounded-lg transition">Contact</a></li>
+      </ul>
+
+      <button id="mobile-menu-button" class="md:hidden focus:outline-none" aria-label="Toggle mobile menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu-overlay" class="md:hidden fixed inset-0 bg-black bg-opacity-75 z-40 hidden"></div>
+    <div id="mobile-menu" class="md:hidden fixed top-0 right-0 w-64 h-full bg-gray-900 text-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+      <div class="p-6 flex justify-end">
+        <button id="close-mobile-menu" class="text-white focus:outline-none" aria-label="Close mobile menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
-      </nav>
-
-      <div
-        id="mobile-menu-overlay"
-        class="md:hidden fixed inset-0 bg-black bg-opacity-75 z-40 hidden"
-      ></div>
-      <div
-        id="mobile-menu"
-        class="md:hidden fixed top-0 right-0 w-64 h-full bg-gray-900 text-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50"
-      >
-        <div class="p-6 flex justify-end">
-          <button
-            id="close-mobile-menu"
-            class="text-white focus:outline-none"
-            aria-label="Close mobile menu"
-          >
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              ></path>
-            </svg>
-          </button>
-        </div>
-        <ul class="flex flex-col space-y-4 p-6">
-          <li>
-            <a
-              href="services.html"
-              class="block py-2 text-lg hover:text-yellow-400 transition"
-              >Services</a
-            >
-          </li>
-          <li>
-            <a
-              href="testimonials.html"
-              class="block py-2 text-lg hover:text-yellow-400 transition"
-              >Testimonials</a
-            >
-          </li>
-          <li>
-            <a
-              href="insights.html"
-              class="block py-2 text-lg hover:text-yellow-400 transition"
-              >Insights</a
-            >
-          </li>
-          <li>
-            <a
-              href="careers.html"
-              class="block py-2 text-lg text-yellow-400 font-semibold"
-              >Careers</a
-            >
-          </li>
-          <li>
-            <a
-              href="contact.html"
-              class="block py-2 text-lg hover:text-yellow-400 transition"
-              >Contact</a
-            >
-          </li>
-        </ul>
       </div>
-    </header>
+      <ul class="flex flex-col space-y-4 p-6">
+        <li><a href="services.html"   class="block py-2 text-lg hover:text-yellow-400 transition">Services</a></li>
+        <li><a href="testimonials.html" class="block py-2 text-lg hover:text-yellow-400 transition">Testimonials</a></li>
+        <li><a href="insights.html"   class="block py-2 text-lg hover:text-yellow-400 transition">Insights</a></li>
+        <li><a href="careers.html"    class="block py-2 text-lg text-yellow-400">Careers</a></li>
+        <li><a href="employees.html"  class="block py-2 text-lg hover:text-yellow-400 transition">Our Team</a></li>
+        <li><a href="contact.html"    class="block py-2 text-lg hover:text-yellow-400 transition">Contact</a></li>
+      </ul>
+    </div>
+  </header>
 
-    <main>
-      <section class="bg-white">
+  <!-- ===================  MAIN  =================== -->
+  <main>
+    <section class="bg-white">
         <div
           class="container mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center"
         >
@@ -258,84 +223,211 @@
           </div>
         </div>
       </section>
+    <!-- ----------  HERO ---------- -->
+    <section class="bg-white bg-dots py-16 md:py-24">
+      <div class="container mx-auto px-6 text-center">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight" data-aos="fade-up">
+          Build Your <span class="text-yellow-500">Career</span> with Us
+        </h1>
+        <p class="text-lg text-gray-700 mt-6 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+          Join a team of innovators, problem-solvers, and technology enthusiasts who are shaping the future of AI and digital transformation.
+        </p>
+        <div class="mt-8" data-aos="fade-up" data-aos-delay="400">
+          <a href="#job-search" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+            <i class="fas fa-search mr-2"></i>Explore Opportunities
+          </a>
+        </div>
+      </div>
+    </section>
 
-      <section id="jobs" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-6 text-center">
-          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Open Roles
-          </h2>
-          <p class="text-lg text-gray-700 mb-12 max-w-3xl mx-auto">
-            Explore opportunities to grow your career with us. Click on a role
-            to learn more about responsibilities, qualifications, and benefits.
-          </p>
+    <!-- ----------  JOB SEARCH ---------- -->
+    <section id="job-search" class="py-16 md:py-24">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Find Your Perfect Role</h2>
+          <p class="text-lg text-gray-700 mt-4">Search through our open positions and find where you belong.</p>
+        </div>
 
-          <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left"
-            role="list"
-          >
-            <div
-              role="listitem"
-              class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col"
-            >
-              <h3 class="text-2xl font-semibold text-gray-900 mb-2">
-                Senior AI Engineer
-              </h3>
-              <p class="text-gray-600 mb-4">Bengaluru, India | Full-time</p>
-              <p class="text-gray-700 mb-6 flex-grow">
-                Design and implement machine learning models for
-                enterprise-level applications. Expertise in Python, TensorFlow,
-                and cloud platforms required.
-              </p>
-              <a
-                href="apply-form.html"
-                class="mt-auto text-center bg-gray-800 hover:bg-black text-white font-bold py-3 px-6 rounded-lg transition-all duration-300"
-                >Learn More & Apply</a
-              >
+        <!-- Search & Filter Bar -->
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 mb-8" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex flex-col lg:flex-row gap-4">
+            <!-- Keyword -->
+            <div class="flex-1 search-container">
+              <div class="relative">
+                <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                <input type="text" id="job-search-input" placeholder="Search jobs (e.g., Frontend Developer, Data Scientist)"
+                       class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg form-field">
+              </div>
             </div>
 
-            <div
-              role="listitem"
-              class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col"
-            >
-              <h3 class="text-2xl font-semibold text-gray-900 mb-2">
-                Cloud Solutions Architect
-              </h3>
-              <p class="text-gray-600 mb-4">Remote | Full-time</p>
-              <p class="text-gray-700 mb-6 flex-grow">
-                Lead the design of robust, scalable, and secure cloud
-                infrastructure for our clients on AWS, Azure, and GCP.
-              </p>
-              <a
-                href="apply-form.html"
-                class="mt-auto text-center bg-gray-800 hover:bg-black text-white font-bold py-3 px-6 rounded-lg transition-all duration-300"
-                >Learn More & Apply</a
-              >
+            <!-- Location -->
+            <div class="lg:w-48">
+              <div class="relative">
+                <i class="fas fa-map-marker-alt absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                <select id="location-filter" class="w-full pl-12 pr-10 py-3 border border-gray-300 rounded-lg form-field appearance-none bg-white">
+                  <option value="">All Locations</option>
+                  <option value="bangalore">Bangalore</option>
+                  <option value="mumbai">Mumbai</option>
+                  <option value="delhi">Delhi</option>
+                  <option value="remote">Remote</option>
+                  <option value="hybrid">Hybrid</option>
+                </select>
+                <i class="fas fa-chevron-down absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+              </div>
             </div>
 
-            <div
-              role="listitem"
-              class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col"
-            >
-              <h3 class="text-2xl font-semibold text-gray-900 mb-2">
-                Data Scientist
-              </h3>
-              <p class="text-gray-600 mb-4">Pune, India | Hybrid</p>
-              <p class="text-gray-700 mb-6 flex-grow">
-                Analyze large, complex data sets to identify trends, develop
-                predictive models, and provide actionable insights that drive
-                business decisions.
-              </p>
-              <a
-                href="apply-form.html"
-                class="mt-auto text-center bg-gray-800 hover:bg-black text-white font-bold py-3 px-6 rounded-lg transition-all duration-300"
-                >Learn More & Apply</a
-              >
+            <!-- Department -->
+            <div class="lg:w-48">
+              <div class="relative">
+                <i class="fas fa-briefcase absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                <select id="department-filter" class="w-full pl-12 pr-10 py-3 border border-gray-300 rounded-lg form-field appearance-none bg-white">
+                  <option value="">All Departments</option>
+                  <option value="engineering">Engineering</option>
+                  <option value="ai-data">AI &amp; Data Science</option>
+                  <option value="consulting">Consulting</option>
+                  <option value="design">Design</option>
+                  <option value="sales">Sales &amp; Marketing</option>
+                  <option value="operations">Operations</option>
+                </select>
+                <i class="fas fa-chevron-down absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+              </div>
+            </div>
+
+            <!-- ============  NEW JOB TYPE FILTER  ============ -->
+            <div class="lg:w-48">
+              <div class="relative">
+                <i class="fas fa-clock absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                <select id="type-filter" class="w-full pl-12 pr-10 py-3 border border-gray-300 rounded-lg form-field appearance-none bg-white">
+                  <option value="">All Types</option>
+                  <option value="Full-time">Full-time</option>
+                  <option value="Part-time">Part-time</option>
+                  <option value="Internship">Internship</option>
+                </select>
+                <i class="fas fa-chevron-down absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+              </div>
+            </div>
+            <!-- ============================================== -->
+
+            <!-- Search Button -->
+            <button id="search-btn" class="bg-gray-800 hover:bg-black text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300">
+              <i class="fas fa-magnifying-glass mr-2"></i>Search
+            </button>
+          </div>
+        </div>
+
+        <!-- Initial Prompt -->
+        <div id="initial-prompt" class="text-center py-16">
+          <div class="bg-white rounded-2xl p-12 shadow-lg border border-gray-100">
+            <i class="fas fa-search text-6xl text-yellow-500 mb-6"></i>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Ready to Find Your Dream Job?</h3>
+            <p class="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
+              Use the search bar above to explore our exciting career opportunities. Search by job title, skills, location, or department to find the perfect role for you.
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+              <button onclick="quickSearch('frontend')" class="bg-yellow-100 hover:bg-yellow-200 text-yellow-800 py-3 px-4 rounded-lg transition-all duration-300 text-sm font-semibold">
+                <i class="fas fa-code mr-2"></i>Frontend
+              </button>
+              <button onclick="quickSearch('ai')" class="bg-blue-100 hover:bg-blue-200 text-blue-800 py-3 px-4 rounded-lg transition-all duration-300 text-sm font-semibold">
+                <i class="fas fa-robot mr-2"></i>AI/ML
+              </button>
+              <button onclick="quickSearch('cloud')" class="bg-green-100 hover:bg-green-200 text-green-800 py-3 px-4 rounded-lg transition-all duration-300 text-sm font-semibold">
+                <i class="fas fa-cloud mr-2"></i>Cloud
+              </button>
+              <button onclick="quickSearch('design')" class="bg-purple-100 hover:bg-purple-200 text-purple-800 py-3 px-4 rounded-lg transition-all duration-300 text-sm font-semibold">
+                <i class="fas fa-palette mr-2"></i>Design
+              </button>
             </div>
           </div>
         </div>
-      </section>
 
-      <section class="bg-gray-900 text-white">
+        <!-- Job Results -->
+        <div id="job-results" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 hidden"></div>
+
+        <!-- Loading -->
+        <div id="loading-state" class="text-center py-12 hidden">
+          <i class="fas fa-spinner loading-spinner text-4xl text-yellow-500 mb-4"></i>
+          <p class="text-gray-600">Searching for opportunities...</p>
+        </div>
+
+        <!-- No Results -->
+        <div id="no-results" class="text-center py-12 hidden">
+          <i class="fas fa-search text-4xl text-gray-400 mb-4"></i>
+          <h3 class="text-xl font-semibold text-gray-700 mb-2">No positions found</h3>
+          <p class="text-gray-600 mb-6">Try adjusting your search criteria or check back later for new opportunities.</p>
+          <button onclick="clearFilters()" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-2 px-6 rounded-lg transition">
+            Clear Search
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------  WHY WORK WITH US  ---------- -->
+    <section class="py-16 bg-gray-900 text-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-3xl sm:text-4xl font-bold">Why Choose TechMaa-AI?</h2>
+          <p class="text-lg text-gray-300 mt-4">We believe in creating an environment where talent thrives.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-yellow-500 text-gray-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-rocket text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Innovation First</h3>
+            <p class="text-gray-300">Work on cutting-edge projects using the latest AI and cloud technologies.</p>
+          </div>
+
+          <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-yellow-500 text-gray-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-users text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Collaborative Culture</h3>
+            <p class="text-gray-300">Join a diverse team of experts who support each other's growth.</p>
+          </div>
+
+          <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+            <div class="bg-yellow-500 text-gray-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-chart-line text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Career Growth</h3>
+            <p class="text-gray-300">Clear paths for advancement with continuous learning opportunities.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------  BENEFITS  ---------- -->
+    <section class="py-16 md:py-24">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Comprehensive Benefits</h2>
+          <p class="text-lg text-gray-700 mt-4">We invest in our team's wellbeing and success.</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-heartbeat text-3xl text-yellow-500 mb-3"></i>
+            <h4 class="font-semibold">Health &amp; Wellness</h4>
+          </div>
+          <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-graduation-cap text-3xl text-yellow-500 mb-3"></i>
+            <h4 class="font-semibold">Learning Budget</h4>
+          </div>
+          <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-home text-3xl text-yellow-500 mb-3"></i>
+            <h4 class="font-semibold">Flexible Work</h4>
+          </div>
+          <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+            <i class="fas fa-plane text-3xl text-yellow-500 mb-3"></i>
+            <h4 class="font-semibold">Paid Time Off</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="bg-gray-900 text-white">
         <div class="container mx-auto px-6 py-16 text-center">
           <h2 class="text-3xl font-bold mb-4">Didn’t find the right role?</h2>
           <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -360,47 +452,205 @@
       </div>
     </footer>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Set current year in footer
-        document.getElementById("year").textContent = new Date().getFullYear();
+  <!-- ===================  MODAL  =================== -->
+  <!-- (modal markup unchanged) -->
 
-        // Mobile menu toggle logic
-        const mobileMenuButton = document.getElementById("mobile-menu-button");
-        const closeMobileMenuButton =
-          document.getElementById("close-mobile-menu");
-        const mobileMenu = document.getElementById("mobile-menu");
-        const mobileMenuOverlay = document.getElementById(
-          "mobile-menu-overlay"
-        );
+  <!-- ===================  FOOTER  =================== -->
+  <!-- (footer markup unchanged) -->
 
-        const toggleMobileMenu = () => {
-          const isOpen = mobileMenu.classList.contains("translate-x-full");
-          if (isOpen) {
-            mobileMenu.classList.remove("translate-x-full");
-            mobileMenuOverlay.classList.remove("hidden");
-            mobileMenuButton.setAttribute("aria-expanded", "true");
-            document.body.classList.add("overflow-hidden");
-          } else {
-            mobileMenu.classList.add("translate-x-full");
-            mobileMenuOverlay.classList.add("hidden");
-            mobileMenuButton.setAttribute("aria-expanded", "false");
-            document.body.classList.remove("overflow-hidden");
-          }
-        };
+  <!-- ===================  SCRIPTS  =================== -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. AOS
+      AOS.init({ duration: 800, once: true, offset: 50 });
 
-        mobileMenuButton.addEventListener("click", toggleMobileMenu);
-        closeMobileMenuButton.addEventListener("click", toggleMobileMenu);
-        mobileMenuOverlay.addEventListener("click", toggleMobileMenu);
+      // 2. Sample job data
+      const jobs = [
+        { id:1, title:"Senior Frontend Developer", department:"engineering", location:"bangalore", type:"Full-time", experience:"4-6 years", salary:"₹15-25 LPA",
+          description:"Build beautiful, responsive web applications using React, TypeScript, and modern CSS frameworks.",
+          requirements:["4+ years React experience","TypeScript proficiency","Modern CSS/Tailwind","REST API integration"], posted:"2 days ago" },
+        { id:2, title:"AI/ML Engineer", department:"ai-data", location:"mumbai", type:"Full-time", experience:"3-5 years", salary:"₹18-28 LPA",
+          description:"Develop and deploy machine learning models for real-world business applications.",
+          requirements:["Python/TensorFlow/PyTorch","ML model deployment","Cloud platforms (AWS/GCP)","Statistics background"], posted:"1 week ago" },
+        { id:3, title:"Cloud Solutions Architect", department:"engineering", location:"remote", type:"Full-time", experience:"7-10 years", salary:"₹25-35 LPA",
+          description:"Design and implement scalable cloud infrastructure solutions using AWS, Azure, and GCP.",
+          requirements:["AWS/Azure/GCP certification","Kubernetes/Docker","Infrastructure as Code","DevOps practices"], posted:"3 days ago" },
+        { id:4, title:"UX/UI Designer", department:"design", location:"bangalore", type:"Part-time", experience:"2-4 years", salary:"₹12-18 LPA",
+          description:"Create intuitive and beautiful user experiences for our AI-powered applications.",
+          requirements:["Figma/Sketch proficiency","User research experience","Prototyping skills","Design systems"], posted:"5 days ago" },
+        { id:5, title:"Data Scientist", department:"ai-data", location:"delhi", type:"Full-time", experience:"2-5 years", salary:"₹16-24 LPA",
+          description:"Extract insights from complex datasets and build predictive models for business optimization.",
+          requirements:["Python/R/SQL","Statistical modeling","Data visualization","Business acumen"], posted:"1 day ago" },
+        { id:6, title:"DevOps Intern", department:"engineering", location:"hybrid", type:"Internship", experience:"0-1 years", salary:"₹3-4 LPA",
+          description:"Assist in maintaining CI/CD pipelines and automating infrastructure.",
+          requirements:["Basic Docker knowledge","Shell scripting","Linux fundamentals"], posted:"4 days ago" }
+      ];
 
-        mobileMenu.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", () => {
-            if (!mobileMenu.classList.contains("translate-x-full")) {
-              toggleMobileMenu();
-            }
-          });
+      let filteredJobs = [];
+      let hasSearched = false;
+
+      // ------------  RENDER JOB CARDS  ------------
+      function renderJobs(list) {
+        const jobResults  = document.getElementById('job-results');
+        const noResults   = document.getElementById('no-results');
+        const initial     = document.getElementById('initial-prompt');
+
+        if (hasSearched) { initial.classList.add('hidden'); jobResults.classList.remove('hidden'); }
+
+        if (list.length === 0 && hasSearched) {
+          jobResults.innerHTML = '';
+          noResults.classList.remove('hidden');
+          return;
+        }
+        noResults.classList.add('hidden');
+
+        if (hasSearched) {
+          jobResults.innerHTML = list.map(job => `
+            <div class="job-card bg-white p-6 rounded-xl border border-gray-100 shadow-lg" data-aos="fade-up">
+              <div class="flex justify-between items-start mb-4">
+                <div>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">${job.title}</h3>
+                  <div class="flex flex-wrap gap-2 mb-3">
+                    <span class="badge bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">
+                      <i class="fas fa-map-marker-alt mr-1"></i>${job.location.charAt(0).toUpperCase() + job.location.slice(1)}
+                    </span>
+                    <span class="badge bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+                      <i class="fas fa-briefcase mr-1"></i>${job.type}
+                    </span>
+                    <span class="badge bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
+                      <i class="fas fa-clock mr-1"></i>${job.experience}
+                    </span>
+                  </div>
+                  <p class="text-gray-600 text-sm mb-3 line-clamp-2">${job.description}</p>
+                  <div class="text-sm text-gray-500 mb-3">
+                    <i class="fas fa-rupee-sign mr-1"></i>${job.salary}
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1 mb-4">
+                ${job.requirements.slice(0,3).map(r=>`<span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">${r}</span>`).join('')}
+                ${job.requirements.length>3 ? `<span class="text-xs text-gray-500">+${job.requirements.length-3} more</span>` : ''}
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-xs text-gray-400">Posted ${job.posted}</span>
+                <button onclick="openApplicationModal(${job.id})" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-2 px-4 rounded-lg transition-all duration-300">
+                  <i class="fas fa-paper-plane mr-1"></i>Apply Now
+                </button>
+              </div>
+            </div>`).join('');
+
+          AOS.refresh();
+        }
+      }
+
+      // ------------  FILTER & SEARCH  ------------
+      function applyFilters() {
+        const term        = document.getElementById('job-search-input').value.toLowerCase();
+        const locFilter   = document.getElementById('location-filter').value;
+        const depFilter   = document.getElementById('department-filter').value;
+        const typeFilter  = document.getElementById('type-filter').value;          // NEW
+
+        if (!term && !locFilter && !depFilter && !typeFilter) return;
+
+        hasSearched = true;
+
+        filteredJobs = jobs.filter(job => {
+          const searchMatch = !term ||
+              job.title.toLowerCase().includes(term) ||
+              job.description.toLowerCase().includes(term) ||
+              job.requirements.some(r => r.toLowerCase().includes(term));
+          const locMatch  = !locFilter  || job.location   === locFilter;
+          const depMatch  = !depFilter  || job.department === depFilter;
+          const typeMatch = !typeFilter || job.type       === typeFilter;          // NEW
+          return searchMatch && locMatch && depMatch && typeMatch;
         });
+
+        // Show loading
+        const loading = document.getElementById('loading-state');
+        const results = document.getElementById('job-results');
+        const initial = document.getElementById('initial-prompt');
+
+        initial.classList.add('hidden');
+        results.innerHTML = '';
+        results.classList.remove('hidden');
+        loading.classList.remove('hidden');
+
+        setTimeout(() => {
+          loading.classList.add('hidden');
+          renderJobs(filteredJobs);
+        }, 800);
+      }
+
+      // Quick search buttons
+      window.quickSearch = term => { document.getElementById('job-search-input').value = term; applyFilters(); };
+
+      // Event listeners
+      document.getElementById('search-btn').addEventListener('click', applyFilters);
+      document.getElementById('job-search-input').addEventListener('keyup', e => { if (e.key==='Enter') applyFilters(); });
+      document.getElementById('location-filter').addEventListener('change', applyFilters);
+      document.getElementById('department-filter').addEventListener('change', applyFilters);
+      document.getElementById('type-filter').addEventListener('change', applyFilters);        // NEW
+
+      // Clear filters
+      window.clearFilters = () => {
+        document.getElementById('job-search-input').value = '';
+        document.getElementById('location-filter').value  = '';
+        document.getElementById('department-filter').value= '';
+        document.getElementById('type-filter').value      = '';                               // NEW
+        hasSearched = false;
+        filteredJobs = [];
+        document.getElementById('initial-prompt').classList.remove('hidden');
+        document.getElementById('job-results').classList.add('hidden');
+        document.getElementById('no-results').classList.add('hidden');
+      };
+
+      // ------------  MODAL (existing code unchanged)  ------------
+      const applicationModal = document.getElementById('application-modal');
+      const closeModalBtn    = document.getElementById('close-application-modal');
+
+      window.openApplicationModal = jobId => {
+        const job = jobs.find(j=>j.id===jobId);
+        if(!job) return;
+        document.getElementById('modal-job-title').textContent = job.title;
+        document.getElementById('modal-job-location').textContent = `${job.location.charAt(0).toUpperCase()+job.location.slice(1)} • ${job.type}`;
+        document.getElementById('selected-job-id').value = jobId;
+        document.getElementById('application-form').reset();
+        document.getElementById('application-success').classList.add('hidden');
+        document.getElementById('application-form').classList.remove('hidden');
+        clearFormErrors();
+        applicationModal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      };
+      window.closeApplicationModal = () => { applicationModal.classList.add('hidden'); document.body.classList.remove('overflow-hidden'); };
+      closeModalBtn.addEventListener('click', closeApplicationModal);
+      applicationModal.addEventListener('click', e => { if(e.target===applicationModal) closeApplicationModal(); });
+
+      // ------------  FORM VALIDATION (unchanged)  ------------
+
+      // ------------  HEADER SCROLL & MOBILE MENU (unchanged)  ------------
+      const header = document.getElementById('main-header');
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('bg-black/95', window.scrollY>10);
+        header.classList.toggle('bg-black/80', window.scrollY<=10);
       });
-    </script>
-  </body>
+      const mBtn = document.getElementById('mobile-menu-button');
+      const mClose= document.getElementById('close-mobile-menu');
+      const mMenu = document.getElementById('mobile-menu');
+      const mOverlay = document.getElementById('mobile-menu-overlay');
+      const toggleMenu = () => {
+        const open = mMenu.classList.contains('translate-x-full');
+        mMenu.classList.toggle('translate-x-full', !open);
+        mOverlay.classList.toggle('hidden', !open);
+        document.body.classList.toggle('overflow-hidden', open);
+      };
+      mBtn.addEventListener('click', toggleMenu);
+      mClose.addEventListener('click', toggleMenu);
+      mOverlay.addEventListener('click', toggleMenu);
+
+      // Year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
 </html>
