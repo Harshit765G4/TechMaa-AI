@@ -40,14 +40,18 @@
        .swiper-button-next:hover, .swiper-button-prev:hover {
         transform: scale(1.1);
       }
+      logoTechmaa {
+        width: 50px;
+        height: 10px;
+        transition: transform 0.3s ease-in-out;
+      }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
     <header id="main-header" class="bg-black/80 text-white shadow-lg sticky top-0 z-50 backdrop-blur-sm transition-colors duration-300">
       <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
         <a href="index.html" class="flex items-center space-x-2 text-2xl font-bold" aria-label="TechMaa-AI Home">
-          <img src="assets/img/logo.svg" alt="TechMaa-AI Logo" class="w-8 h-8" />
-          <span class="hidden sm:inline">TechMaa-AI</span>
+          <img src="assets/img/LOGO2.png" alt="TechMaa-AI Logo" id="logoTechmaa" class="w-56 h-auto" />
         </a>
         <ul class="hidden md:flex items-center space-x-6">
           <li><a href="services.html" class="hover:text-yellow-400 transition">Services</a></li>
@@ -220,7 +224,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         AOS.init({ duration: 800, once: true, offset: 50 });
-        new Typed('#typed-element', { strings: ['AI', 'Data', 'Cloud'], typeSpeed: 80, backSpeed: 50, backDelay: 2000, loop: true, smartBackspace: true });
+        new Typed('#typed-element', { strings: ['AI', 'Data', 'Cloud-Computing'], typeSpeed: 80, backSpeed: 50, backDelay: 2000, loop: true, smartBackspace: true });
         new Swiper('.swiper', {
             loop: true,
             autoplay: { delay: 5000, disableOnInteraction: false },

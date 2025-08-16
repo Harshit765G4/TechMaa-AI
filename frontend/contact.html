@@ -270,10 +270,18 @@
         <section
           class="max-w-3xl mx-auto bg-white p-8 sm:p-10 rounded-xl shadow-lg border border-gray-100 mb-16"
         >
-          <h2 id="messageUs" class="text-3xl font-bold text-gray-900 mb-8 text-center">
+          <h2
+            id="messageUs"
+            class="text-3xl font-bold text-gray-900 mb-8 text-center"
+          >
             Send Us a Message
           </h2>
-          <form id="contactForm" class="space-y-6" novalidate enctype="multipart/form-data">
+          <form
+            id="contactForm"
+            class="space-y-6"
+            novalidate
+            enctype="multipart/form-data"
+          >
             <div>
               <label
                 for="name"
@@ -330,11 +338,25 @@
                 placeholder="Acme Corp"
               />
             </div>
-            
+
             <div>
-                <label for="resume" class="block text-left text-gray-700 font-medium mb-2">Attach Resume (PDF, max 5MB)</label>
-                <input type="file" id="resume" name="resume" class="form-field block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-yellow-100 file:text-yellow-700 hover:file:bg-yellow-200 cursor-pointer transition-colors duration-200" accept=".pdf">
-                <p id="resume-error" class="error-message hidden" aria-live="polite"></p>
+              <label
+                for="resume"
+                class="block text-left text-gray-700 font-medium mb-2"
+                >Attach Resume (PDF, max 5MB)</label
+              >
+              <input
+                type="file"
+                id="resume"
+                name="resume"
+                class="form-field block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-yellow-100 file:text-yellow-700 hover:file:bg-yellow-200 cursor-pointer transition-colors duration-200"
+                accept=".pdf"
+              />
+              <p
+                id="resume-error"
+                class="error-message hidden"
+                aria-live="polite"
+              ></p>
             </div>
 
             <div>
@@ -437,6 +459,26 @@
           Empowering industries with AI-driven innovation.
         </p>
       </div>
+      <div
+        class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500"
+      >
+        <small
+          >&copy; <span id="year"></span> TechMaa-AI. All rights
+          reserved.</small
+        >
+
+        <p class="text-sm mt-4">
+          Please note: This is a demonstration website created as a generative
+          AI response. The official website for the company referenced is
+          <a
+            href="https://techmaa.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline text-gray-400 hover:text-yellow-500 transition"
+            >TechMaa | Enterprise IT Solutions & Digital Transformation</a
+          >.
+        </p>
+      </div>
     </footer>
 
     <script>
@@ -503,14 +545,13 @@
             let isValid = true;
             const formData = new FormData(contactForm);
             const formValues = {};
-            
-            for (let [name, value] of formData.entries()) {
-                // We handle the file input separately
-                if (typeof value !== 'object') { 
-                    formValues[name] = value.trim();
-                }
-            }
 
+            for (let [name, value] of formData.entries()) {
+              // We handle the file input separately
+              if (typeof value !== "object") {
+                formValues[name] = value.trim();
+              }
+            }
 
             // Basic Client-side Validation
             // Full Name
@@ -529,21 +570,27 @@
             }
 
             // Resume file validation
-            const resumeInput = document.getElementById('resume');
+            const resumeInput = document.getElementById("resume");
             const resumeFile = resumeInput.files[0];
             const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
 
-            if (resumeFile) { // If a file is selected
-                if (resumeFile.type !== 'application/pdf') {
-                    displayError('resume', 'Invalid file type. Please upload a PDF.');
-                    isValid = false;
-                }
-                if (resumeFile.size > MAX_FILE_SIZE) {
-                    displayError('resume', 'File is too large. Maximum size is 5MB.');
-                    isValid = false;
-                }
+            if (resumeFile) {
+              // If a file is selected
+              if (resumeFile.type !== "application/pdf") {
+                displayError(
+                  "resume",
+                  "Invalid file type. Please upload a PDF."
+                );
+                isValid = false;
+              }
+              if (resumeFile.size > MAX_FILE_SIZE) {
+                displayError(
+                  "resume",
+                  "File is too large. Maximum size is 5MB."
+                );
+                isValid = false;
+              }
             }
-
 
             // Message
             if (!formValues.message) {
@@ -642,8 +689,8 @@
                 if (input.value) {
                   clearError(input.name);
                 }
-              } else if (input.name === 'resume') {
-                clearError('resume'); // Clear resume error on new file selection
+              } else if (input.name === "resume") {
+                clearError("resume"); // Clear resume error on new file selection
               }
             });
           });
