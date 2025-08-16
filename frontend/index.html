@@ -99,7 +99,7 @@
               >Careers</a
             >
           </li>
-          <li><a href="employes.html"      class="hover:text-yellow-400 transition">Team</a></li>
+          <li><a href="employes.html"     class="hover:text-yellow-400 transition">Team</a></li>
           <li>
             <a href="contact.html" class="text-yellow-400 font-semibold"
               >Contact</a
@@ -157,52 +157,42 @@
             </svg>
           </button>
         </div>
-        <ul class="flex flex-col space-y-4 p-6">
-          
+        <ul class="flex flex-col space-y-4 px-6">
           <li>
-            <a
-              href="services.html"
-              class="block py-2 text-lg hover:text-yellow-400 transition"
+            <a href="index.html" class="block py-2 hover:text-yellow-400 transition"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a href="services.html" class="block py-2 hover:text-yellow-400 transition"
               >Services</a
             >
           </li>
           <li>
-            <a
-              href="industries.html"
-              class="block py-2 text-lg hover:text-yellow-400 transition"
-              >Industries</a
+            <a href="testimonials.html" class="block py-2 hover:text-yellow-400 transition"
+              >Testimonials</a
             >
           </li>
           <li>
-            <a
-              href="case-studies.html"
-              class="block py-2 text-lg hover:text-yellow-400 transition"
-              >Case Studies</a
-            >
-          </li>
-          <li>
-            <a
-              href="insights.html"
-              class="block py-2 text-lg hover:text-yellow-400 transition"
+            <a href="insights.html" class="block py-2 hover:text-yellow-400 transition"
               >Insights</a
             >
           </li>
           <li>
-            <a
-              href="careers.html"
-              class="block py-2 text-lg hover:text-yellow-400 transition"
+            <a href="careers.html" class="block py-2 hover:text-yellow-400 transition"
               >Careers</a
             >
           </li>
           <li>
-            <a
-              href="contact.html"
-              class="block py-2 text-lg text-yellow-400 font-semibold"
+              <a href="employes.html" class="block py-2 hover:text-yellow-400 transition">Team</a>
+          </li>
+          <li>
+            <a href="contact.html" class="block py-2 text-yellow-400 font-semibold"
               >Contact</a
             >
           </li>
         </ul>
-      </div>
+        </div>
     </header>
 
     <main>
@@ -545,9 +535,9 @@
       <div class="container mx-auto px-6 pt-16 pb-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div class="col-span-1">
-             <a href="index.html">
+              <a href="index.html">
                 <img src="assets/img/LOGO2.png" alt="TechMaa-AI Logo" class="w-40 h-auto mb-4" />
-             </a>
+              </a>
             <p class="text-gray-400 text-sm">
               Consulting & IT services to help you ship faster—with confidence.
             </p>
@@ -575,9 +565,9 @@
           </nav>
           <div>
             <h5 class="font-bold text-gray-200 mb-4">Get in touch</h5>
-             <ul class="space-y-3">
-                 <li><a href="mailto:hello@techmaa-ai.com" class="text-gray-400 hover:text-cyan-400 transition">hello@techmaa-ai.com</a></li>
-                 </ul>
+              <ul class="space-y-3">
+                  <li><a href="mailto:hello@techmaa-ai.com" class="text-gray-400 hover:text-cyan-400 transition">hello@techmaa-ai.com</a></li>
+                  </ul>
           </div>
         </div>
         <div
@@ -661,10 +651,13 @@
         if (outcomesSection) {
           observer.observe(outcomesSection);
         }
-        const header = document.getElementById("main-header");
+        const header = document.querySelector("header"); // Changed to querySelector for better targeting
         window.addEventListener("scroll", () => {
-          header.classList.toggle("bg-black/95", window.scrollY > 10);
-          header.classList.toggle("bg-black/80", window.scrollY <= 10);
+            if (window.scrollY > 10) {
+                header.classList.add("bg-opacity-90");
+            } else {
+                header.classList.remove("bg-opacity-90");
+            }
         });
         const mobileMenuButton = document.getElementById("mobile-menu-button");
         const closeMobileMenuButton =
@@ -678,6 +671,7 @@
           mobileMenu.classList.toggle("translate-x-full", !isOpen);
           mobileMenuOverlay.classList.toggle("hidden", !isOpen);
           document.body.classList.toggle("overflow-hidden", isOpen);
+          mobileMenuButton.setAttribute('aria-expanded', isOpen);
         };
         mobileMenuButton.addEventListener("click", toggleMobileMenu);
         if (closeMobileMenuButton)
