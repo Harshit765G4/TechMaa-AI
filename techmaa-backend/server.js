@@ -3,7 +3,10 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path');
+
+// Route files
 const publicRoutes = require('./routes/public.routes');
+const adminRoutes = require('./routes/admin.routes'); // <-- ADD THIS
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -18,6 +21,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
 app.use('/api/public', publicRoutes);
+app.use('/api/admin', adminRoutes); // <-- ADD THIS
 
 // Database Connection
 mongoose.connect(process.env.MONGO_URI)
