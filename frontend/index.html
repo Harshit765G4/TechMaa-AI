@@ -724,7 +724,9 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        // --- Library Initializations ---
         AOS.init({ duration: 800, once: true, offset: 50 });
+
         new Typed("#typed-element", {
           strings: ["AI", "Data", "Cloud-Computing", "Generative AI"],
           typeSpeed: 80,
@@ -733,6 +735,7 @@
           loop: true,
           smartBackspace: true,
         });
+
         new Swiper(".swiper", {
           loop: true,
           autoplay: { delay: 5000, disableOnInteraction: false },
@@ -745,6 +748,8 @@
           spaceBetween: 20,
           breakpoints: { 768: { slidesPerView: 2 } },
         });
+
+        // --- Intersection Observer for Number Counters ---
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
@@ -772,11 +777,14 @@
           },
           { threshold: 0.5 }
         );
+
         const outcomesSection = document.getElementById("outcomes-section");
         if (outcomesSection) {
           observer.observe(outcomesSection);
         }
-        const header = document.querySelector("header"); // Changed to querySelector for better targeting
+
+        // --- Header Scroll Effect ---
+        const header = document.querySelector("header");
         window.addEventListener("scroll", () => {
           if (window.scrollY > 10) {
             header.classList.add("bg-opacity-90");
@@ -784,6 +792,8 @@
             header.classList.remove("bg-opacity-90");
           }
         });
+
+        // --- Mobile Menu Logic ---
         const mobileMenuButton = document.getElementById("mobile-menu-button");
         const closeMobileMenuButton =
           document.getElementById("close-mobile-menu");
@@ -791,6 +801,7 @@
         const mobileMenuOverlay = document.getElementById(
           "mobile-menu-overlay"
         );
+
         const toggleMobileMenu = () => {
           const isOpen = mobileMenu.classList.contains("translate-x-full");
           mobileMenu.classList.toggle("translate-x-full", !isOpen);
@@ -798,23 +809,67 @@
           document.body.classList.toggle("overflow-hidden", isOpen);
           mobileMenuButton.setAttribute("aria-expanded", isOpen);
         };
+
         mobileMenuButton.addEventListener("click", toggleMobileMenu);
         if (closeMobileMenuButton)
           closeMobileMenuButton.addEventListener("click", toggleMobileMenu);
         mobileMenuOverlay.addEventListener("click", toggleMobileMenu);
+
+        // --- Set Current Year in Footer ---
         document.getElementById("year").textContent = new Date().getFullYear();
+
+        // --- UPDATED Newsletter Form Submission Logic ---
         const newsletterForm = document.getElementById("newsletterForm");
         const newsletterMsg = document.getElementById("newsletterMsg");
+
         if (newsletterForm) {
-          newsletterForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            newsletterMsg.textContent = "Thank you for subscribing!";
-            newsletterMsg.classList.add("text-green-600");
-            newsletterForm.reset();
+          newsletterForm.addEventListener("submit", async (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            const emailInput = newsletterForm.querySelector(
+              'input[name="email"]'
+            );
+            const email = emailInput.value;
+
+            // Clear previous messages
+            newsletterMsg.textContent = "";
+            newsletterMsg.classList.remove("text-green-600", "text-red-600");
+
+            try {
+              // Send the data to your backend API
+              const response = await fetch("http://localhost:3000/subscribe", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email: email }),
+              });
+
+              const data = await response.json();
+
+              if (response.ok) {
+                // Success
+                newsletterMsg.textContent = data.message;
+                newsletterMsg.classList.add("text-green-600");
+                newsletterForm.reset();
+              } else {
+                // Error from server (e.g., duplicate email)
+                newsletterMsg.textContent = data.message;
+                newsletterMsg.classList.add("text-red-600");
+              }
+            } catch (error) {
+              // Network or other errors
+              console.error("Submission error:", error);
+              newsletterMsg.textContent =
+                "Could not connect to the server. Please try again.";
+              newsletterMsg.classList.add("text-red-600");
+            }
+
+            // Make the message disappear after a while
             setTimeout(() => {
               newsletterMsg.textContent = "";
-              newsletterMsg.classList.remove("text-green-600");
-            }, 4000);
+              newsletterMsg.classList.remove("text-green-600", "text-red-600");
+            }, 5000);
           });
         }
       });
